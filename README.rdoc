@@ -1,6 +1,6 @@
 =Trail
 
-Trail is a queue primitive for delayed and normalized execution.
+Trail is a lightweight queue for delayed and normalized execution.
 
 ==Quick Start
 
