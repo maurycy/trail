@@ -1,0 +1,41 @@
+=Trail
+
+Trail is as an abstract primitive for ordered, delayed and normalized execution.
+
+==Quick Start
+
+First, create a trail:
+
+	t = Trail.new
+
+Then, define the normalization method:
+
+	t.normalize = lambda do |trail|
+	  trail.uniq
+	end
+
+And, the commit method:
+
+	t.commit = lambda do |trail|
+	  trail.each {|e| puts e }
+	  nil
+	end
+
+Push some data:
+
+	100.times { t.push("hello, world") }
+
+And, commit the trail:
+
+	t.commit!
+
+Please note that Trail#commit! returns Trail#commit return.
+
+It is possible to specify the watch method:
+
+	t.watch = lambda do |trail, v|
+	  puts 'hello'
+	  trail
+	end
+
+Please note that Trail#watch return overwrites the trail's queue.
