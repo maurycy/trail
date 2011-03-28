@@ -1,6 +1,6 @@
 =Trail
 
-Trail is as an abstract primitive for ordered, delayed and normalized execution.
+Trail is a queue primitive for delayed and normalized execution.
 
 ==Quick Start
 
