@@ -6,36 +6,36 @@ Trail is a lightweight queue for delayed and normalized execution.
 
 First, create a trail:
 
-	t = Trail.new
+    t = Trail.new
 
 Then, define the normalization method:
 
-	t.normalize = lambda do |trail|
-	  trail.uniq
-	end
+    t.normalize = lambda do |trail|
+        trail.uniq
+    end
 
 And, the commit method:
 
-	t.commit = lambda do |trail|
-	  trail.each {|e| puts e }
-	  nil
-	end
+    t.commit = lambda do |trail|
+        trail.each {|e| puts e }
+        nil
+    end
 
 Push some data:
 
-	100.times { t.push("hello, world") }
+    100.times { t.push("hello, world") }
 
 And, commit the trail:
 
-	t.commit!
+    t.commit!
 
 Please note that Trail#commit! returns Trail#commit return.
 
 It is possible to specify the watch method:
 
-	t.watch = lambda do |trail, v|
-	  puts 'hello'
-	  trail
-	end
+    t.watch = lambda do |trail, v|
+        puts 'hello'
+        trail
+    end
 
 Please note that Trail#watch return overwrites the trail's queue.
